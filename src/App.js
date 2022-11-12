@@ -24,6 +24,7 @@ function App() {
 
       <div className="container">
         <div className="row">
+          <Card shoes={shoes}></Card>
           <div className="col-md-4">
             <img
               alt="신발1"
@@ -34,28 +35,23 @@ function App() {
             <p>{shoes[0].content}</p>
             <p>{shoes[0].price}</p>
           </div>
-          <div className="col-md-4">
-            <img
-              alt="신발2"
-              src="https://codingapple1.github.io/shop/shoes2.jpg"
-              width="80%"
-            />
-            <h4>{shoes[1].title}</h4>
-            <p>{shoes[1].content}</p>
-            <p>{shoes[1].price}</p>
-          </div>
-          <div className="col-md-4">
-            <img
-              alt="신발3"
-              src="https://codingapple1.github.io/shop/shoes3.jpg"
-              width="80%"
-            />
-            <h4>{shoes[2].title}</h4>
-            <p>{shoes[2].content}</p>
-            <p>{shoes[2].price}</p>
-          </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function Card(props) {
+  return (
+    <div className="col-md-4">
+      <img
+        alt="신발1"
+        src="https://codingapple1.github.io/shop/shoes1.jpg"
+        width="80%"
+      />
+      <h4>{props.shoes[0].title}</h4>
+      <p>{props.shoes[0].content}</p>
+      <p>{props.shoes[0].price}</p>
     </div>
   );
 }
