@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import "./App.css";
 import data from "./data";
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
   let [shoes] = useState(data);
@@ -18,17 +19,58 @@ function App() {
         </Container>
       </Navbar>
 
-      <div>
-        <div className="main-bg"></div>
-      </div>
+      <Link to="/">홈</Link>
+      <Link to="/detail">상세</Link>
 
-      <div className="container">
-        <div className="row">
-          {shoes.map((a, i) => {
-            return <Card shoes={shoes[i]} i={i}></Card>;
-          })}
-        </div>
-      </div>
+      <Routes>
+        <Route
+          path="/detail"
+          element={
+            <>
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-6">
+                    <img
+                      alt="아무사진"
+                      src="https://codingapple1.github.io/shop/shoes1.jpg"
+                      width="100%"
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <h4 className="pt-5">상품명</h4>
+                    <p>상품설명</p>
+                    <p>120000원</p>
+                    <button className="btn btn-danger">주문하기</button>
+                  </div>
+                </div>
+              </div>
+            </>
+          }
+        />
+        <Route />
+      </Routes>
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div>
+                <div className="main-bg"></div>
+              </div>
+
+              <div className="container">
+                <div className="row">
+                  {shoes.map((a, i) => {
+                    return <Card shoes={shoes[i]} i={i}></Card>;
+                  })}
+                </div>
+              </div>
+            </>
+          }
+        />
+        <Route />
+      </Routes>
     </div>
   );
 }
