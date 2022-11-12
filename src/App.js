@@ -3,6 +3,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import "./App.css";
 import data from "./data";
 import { Routes, Route, Link } from "react-router-dom";
+import Detail from "./Detail";
 
 function App() {
   let [shoes] = useState(data);
@@ -13,40 +14,19 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">shoeShop</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="/">
+              <Link to="/">홈</Link>
+            </Nav.Link>
             <Nav.Link href="#feature">Cart</Nav.Link>
+            <Nav.Link href="/detail">
+              <Link to="/detail">상세</Link>
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 
-      <Link to="/">홈</Link>
-      <Link to="/detail">상세</Link>
-
       <Routes>
-        <Route
-          path="/detail"
-          element={
-            <>
-              <div className="container">
-                <div className="row">
-                  <div className="col-md-6">
-                    <img
-                      alt="아무사진"
-                      src="https://codingapple1.github.io/shop/shoes1.jpg"
-                      width="100%"
-                    />
-                  </div>
-                  <div className="col-md-6">
-                    <h4 className="pt-5">상품명</h4>
-                    <p>상품설명</p>
-                    <p>120000원</p>
-                    <button className="btn btn-danger">주문하기</button>
-                  </div>
-                </div>
-              </div>
-            </>
-          }
-        />
+        <Route path="/detail" element={<Detail />} />
         <Route />
       </Routes>
 
