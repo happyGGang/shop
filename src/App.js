@@ -34,7 +34,7 @@ function App() {
       </Navbar>
 
       <Routes>
-        <Route path="/detail" element={<Detail shoes={shoes} />} />
+        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
       </Routes>
 
       <Routes>
